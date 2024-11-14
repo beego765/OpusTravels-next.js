@@ -5,15 +5,15 @@ import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Plane, Hotel, Car, Menu, Globe, Calendar, Users, Search, CreditCard, Headphones, MapPin } from 'lucide-react'
 
-import { Button } from 'components/ui/button'
-import { Input } from 'components/ui/input'
-import { Select } from 'components/ui/select'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from 'components/ui/tabs'
-import { Popover, PopoverContent, PopoverTrigger } from 'components/ui/popover'
-import { Card, CardContent, CardHeader, CardTitle } from 'components/ui/card'
-import { Badge } from 'components/ui/badge'
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from 'components/ui/accordion'
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from 'components/ui/dialog'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Select } from '@/components/ui/select'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 
 const destinations = [
   { name: 'Tokyo', image: 'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&q=80', continent: 'Asia', price: 'From £799' },
@@ -43,7 +43,7 @@ export default function EnhancedGlobalTravelLandingPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-900 via-blue-900 to-indigo-900 text-white">
-      <header className="container mx-auto px-4 py-4 flex items-center justify-between relative z-10">
+      <header className="container mx-auto px-4 py-6 flex items-center justify-between relative z-10">
         <div className="flex items-center space-x-2">
           <Globe className="h-8 w-8 text-blue-400" />
           <span className="text-2xl font-bold">OpusTravels</span>
@@ -83,7 +83,7 @@ export default function EnhancedGlobalTravelLandingPage() {
       </header>
 
       <main>
-        <section className="container mx-auto px-4 py-12 flex flex-col items-center text-center relative overflow-hidden">
+        <section className="container mx-auto px-4 py-20 flex flex-col items-center text-center relative overflow-hidden">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentDestination}
@@ -119,7 +119,7 @@ export default function EnhancedGlobalTravelLandingPage() {
             Discover amazing destinations across the globe. Book your flights with ease and embark on unforgettable journeys.
           </motion.p>
           <motion.div 
-            className="w-full max-w-4xl bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg p-4 rounded-lg shadow-lg relative z-10"
+            className="w-full max-w-4xl bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg p-6 rounded-lg shadow-lg relative z-10"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.6 }}
