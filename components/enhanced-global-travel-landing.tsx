@@ -11,6 +11,7 @@ import { Select } from '../components/ui/select'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs'
 import { Popover, PopoverContent, PopoverTrigger } from '../components/ui/popover'
 import { Badge } from '../components/ui/badge'
+import { cn } from '../lib/utils'
 
 const destinations = [
   { name: "Tokyo", image: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&q=80", continent: "Asia", price: "From £799" },
@@ -94,7 +95,7 @@ export function EnhancedGlobalTravelLanding() {
             </motion.div>
           </AnimatePresence>
           <motion.h1 
-            className="text-5xl font-bold mb-6 leading-tight relative z-10"
+            className="text-5xl font-bold mb-6 leading-tight relative z-10 max-sm:text-3xl"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2 }}
@@ -102,7 +103,7 @@ export function EnhancedGlobalTravelLanding() {
             Explore the World with OpusTravels
           </motion.h1>
           <motion.p 
-            className="text-xl mb-10 max-w-2xl relative z-10"
+            className="text-xl mb-10 max-w-2xl relative z-10 max-sm:text-base"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4 }}
@@ -116,37 +117,37 @@ export function EnhancedGlobalTravelLanding() {
             transition={{ delay: 0.6 }}
           >
             <Tabs defaultValue="flights" className="w-full">
-              <TabsList className="grid w-full grid-cols-3 mb-4">
-                <TabsTrigger value="flights" className="flex items-center"><Plane className="mr-2 h-4 w-4" /> Flights</TabsTrigger>
-                <TabsTrigger value="hotels" className="flex items-center"><Hotel className="mr-2 h-4 w-4" /> Hotels</TabsTrigger>
-                <TabsTrigger value="cars" className="flex items-center"><Car className="mr-2 h-4 w-4" /> Car Rental</TabsTrigger>
+              <TabsList className="grid w-full grid-cols-3 mb-4 max-sm:grid-cols-1 max-sm:gap-2">
+                <TabsTrigger value="flights" className="flex items-center max-sm:py-2"><Plane className="mr-2 h-4 w-4" /> Flights</TabsTrigger>
+                <TabsTrigger value="hotels" className="flex items-center max-sm:py-2"><Hotel className="mr-2 h-4 w-4" /> Hotels</TabsTrigger>
+                <TabsTrigger value="cars" className="flex items-center max-sm:py-2"><Car className="mr-2 h-4 w-4" /> Car Rental</TabsTrigger>
               </TabsList>
               <TabsContent value="flights">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                  <div>
-                    <label htmlFor="from" className="block text-sm font-medium mb-1">From</label>
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4 max-sm:grid-cols-1 max-sm:gap-3">
+                  <div className="max-sm:mb-2">
+                    <label htmlFor="from" className="block text-sm font-medium mb-1 max-sm:text-xs">From</label>
                     <Select>
                       <option value="">Select origin</option>
                     </Select>
                   </div>
-                  <div>
-                    <label htmlFor="to" className="block text-sm font-medium mb-1">To</label>
+                  <div className="max-sm:mb-2">
+                    <label htmlFor="to" className="block text-sm font-medium mb-1 max-sm:text-xs">To</label>
                     <Select>
                       <option value="">Select destination</option>
                     </Select>
                   </div>
-                  <div>
-                    <label htmlFor="depart" className="block text-sm font-medium mb-1">Depart</label>
-                    <Input type="date" id="depart" />
+                  <div className="max-sm:mb-2">
+                    <label htmlFor="depart" className="block text-sm font-medium mb-1 max-sm:text-xs">Depart</label>
+                    <Input type="date" id="depart" className={cn("max-sm:text-sm")} />
                   </div>
-                  <div>
-                    <label htmlFor="return" className="block text-sm font-medium mb-1">Return</label>
-                    <Input type="date" id="return" />
+                  <div className="max-sm:mb-2">
+                    <label htmlFor="return" className="block text-sm font-medium mb-1 max-sm:text-xs">Return</label>
+                    <Input type="date" id="return" className={cn("max-sm:text-sm")} />
                   </div>
                 </div>
-                <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div>
-                    <label htmlFor="passengers" className="block text-sm font-medium mb-1">Passengers</label>
+                <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4 max-sm:grid-cols-1 max-sm:gap-3">
+                  <div className="max-sm:mb-2">
+                    <label htmlFor="passengers" className="block text-sm font-medium mb-1 max-sm:text-xs">Passengers</label>
                     <Select>
                       <option value="1">1 Adult</option>
                       <option value="2">2 Adults</option>
@@ -154,8 +155,8 @@ export function EnhancedGlobalTravelLanding() {
                       <option value="4">4 Adults</option>
                     </Select>
                   </div>
-                  <div>
-                    <label htmlFor="class" className="block text-sm font-medium mb-1">Class</label>
+                  <div className="max-sm:mb-2">
+                    <label htmlFor="class" className="block text-sm font-medium mb-1 max-sm:text-xs">Class</label>
                     <Select>
                       <option value="economy">Economy</option>
                       <option value="premium">Premium Economy</option>
@@ -163,67 +164,67 @@ export function EnhancedGlobalTravelLanding() {
                       <option value="first">First Class</option>
                     </Select>
                   </div>
-                  <div className="flex items-end">
-                    <Button className="w-full bg-blue-600 hover:bg-blue-700 transition-colors">
+                  <div className="flex items-end max-sm:mt-2">
+                    <Button className="w-full bg-blue-600 hover:bg-blue-700 transition-colors max-sm:py-3">
                       <Search className="mr-2 h-4 w-4" /> Search Flights
                     </Button>
                   </div>
                 </div>
               </TabsContent>
               <TabsContent value="hotels">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                  <div>
-                    <label htmlFor="destination" className="block text-sm font-medium mb-1">Destination</label>
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4 max-sm:grid-cols-1 max-sm:gap-3">
+                  <div className="max-sm:mb-2">
+                    <label htmlFor="destination" className="block text-sm font-medium mb-1 max-sm:text-xs">Destination</label>
                     <Select>
                       <option value="">Select destination</option>
                     </Select>
                   </div>
-                  <div>
-                    <label htmlFor="check-in" className="block text-sm font-medium mb-1">Check-in</label>
-                    <Input type="date" id="check-in" />
+                  <div className="max-sm:mb-2">
+                    <label htmlFor="check-in" className="block text-sm font-medium mb-1 max-sm:text-xs">Check-in</label>
+                    <Input type="date" id="check-in" className={cn("max-sm:text-sm")} />
                   </div>
-                  <div>
-                    <label htmlFor="check-out" className="block text-sm font-medium mb-1">Check-out</label>
-                    <Input type="date" id="check-out" />
+                  <div className="max-sm:mb-2">
+                    <label htmlFor="check-out" className="block text-sm font-medium mb-1 max-sm:text-xs">Check-out</label>
+                    <Input type="date" id="check-out" className={cn("max-sm:text-sm")} />
                   </div>
-                  <div>
-                    <label htmlFor="guests" className="block text-sm font-medium mb-1">Guests</label>
+                  <div className="max-sm:mb-2">
+                    <label htmlFor="guests" className="block text-sm font-medium mb-1 max-sm:text-xs">Guests</label>
                     <Select>
                       <option value="2">2 Adults, 0 Children</option>
                     </Select>
                   </div>
                 </div>
-                <div className="mt-4">
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700 transition-colors">
+                <div className="mt-4 max-sm:mt-2">
+                  <Button className="w-full bg-blue-600 hover:bg-blue-700 transition-colors max-sm:py-3">
                     <Search className="mr-2 h-4 w-4" /> Search Hotels
                   </Button>
                 </div>
               </TabsContent>
               <TabsContent value="cars">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                  <div>
-                    <label htmlFor="pickup" className="block text-sm font-medium mb-1">Pick-up Location</label>
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4 max-sm:grid-cols-1 max-sm:gap-3">
+                  <div className="max-sm:mb-2">
+                    <label htmlFor="pickup" className="block text-sm font-medium mb-1 max-sm:text-xs">Pick-up Location</label>
                     <Select>
                       <option value="">Select location</option>
                     </Select>
                   </div>
-                  <div>
-                    <label htmlFor="dropoff" className="block text-sm font-medium mb-1">Drop-off Location</label>
+                  <div className="max-sm:mb-2">
+                    <label htmlFor="dropoff" className="block text-sm font-medium mb-1 max-sm:text-xs">Drop-off Location</label>
                     <Select>
                       <option value="">Select location</option>
                     </Select>
                   </div>
-                  <div>
-                    <label htmlFor="pickup-date" className="block text-sm font-medium mb-1">Pick-up Date</label>
-                    <Input type="date" id="pickup-date" />
+                  <div className="max-sm:mb-2">
+                    <label htmlFor="pickup-date" className="block text-sm font-medium mb-1 max-sm:text-xs">Pick-up Date</label>
+                    <Input type="date" id="pickup-date" className={cn("max-sm:text-sm")} />
                   </div>
-                  <div>
-                    <label htmlFor="dropoff-date" className="block text-sm font-medium mb-1">Drop-off Date</label>
-                    <Input type="date" id="dropoff-date" />
+                  <div className="max-sm:mb-2">
+                    <label htmlFor="dropoff-date" className="block text-sm font-medium mb-1 max-sm:text-xs">Drop-off Date</label>
+                    <Input type="date" id="dropoff-date" className={cn("max-sm:text-sm")} />
                   </div>
                 </div>
-                <div className="mt-4">
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700 transition-colors">
+                <div className="mt-4 max-sm:mt-2">
+                  <Button className="w-full bg-blue-600 hover:bg-blue-700 transition-colors max-sm:py-3">
                     <Search className="mr-2 h-4 w-4" /> Search Cars
                   </Button>
                 </div>
@@ -233,8 +234,8 @@ export function EnhancedGlobalTravelLanding() {
         </section>
 
         <section className="container mx-auto px-4 py-20">
-          <h2 className="text-3xl font-bold mb-10 text-center">Popular Destinations</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <h2 className="text-3xl font-bold mb-10 text-center max-sm:text-2xl">Popular Destinations</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-sm:gap-4">
             {destinations.map((destination, index) => (
               <motion.div 
                 key={destination.name}
@@ -248,13 +249,13 @@ export function EnhancedGlobalTravelLanding() {
                   alt={`${destination.name} cityscape`}
                   width={400} 
                   height={300}
-                  className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110 max-sm:h-48"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-6">
-                  <h3 className="text-2xl font-bold text-white mb-2">{destination.name}</h3>
+                  <h3 className="text-2xl font-bold text-white mb-2 max-sm:text-xl">{destination.name}</h3>
                   <div className="flex justify-between items-center">
                     <Badge variant="secondary">{destination.continent}</Badge>
-                    <span className="text-white font-semibold">{destination.price}</span>
+                    <span className="text-white font-semibold max-sm:text-sm">{destination.price}</span>
                   </div>
                 </div>
               </motion.div>
